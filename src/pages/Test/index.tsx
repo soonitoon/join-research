@@ -1,7 +1,11 @@
 import { ChangeEventHandler, useState } from "react";
-import { Description, NextButton, InputWithText } from "../../components";
+import {
+  Description,
+  NextButton,
+  InputWithText,
+  Layout,
+} from "../../components";
 import { descriptions, sampleTexts, alerts } from "../../contents";
-import $ from "./style.module.scss";
 
 const Test = () => {
   const [textValue, setTextValue] = useState("");
@@ -36,11 +40,11 @@ const Test = () => {
   };
 
   return (
-    <main className={$.main}>
+    <Layout>
       <Description description={descriptions.typingTest} />
       <InputWithText value={textValue} onChange={handleChange} />
       <NextButton onClick={handleClick} />
-    </main>
+    </Layout>
   );
 };
 

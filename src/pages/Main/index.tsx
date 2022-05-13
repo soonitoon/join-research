@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { Description, NextButton } from "../../components";
+import { Description, Layout, NextButton } from "../../components";
 import { descriptions } from "../../contents";
-import $ from "./style.module.scss";
 
 const Main = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => navigate("/test");
+  const handleClick = () => navigate("/test", { replace: true });
 
   return (
-    <main className={$.main}>
+    <Layout>
       <Description description={descriptions.start} />
       <NextButton onClick={handleClick} />
-    </main>
+    </Layout>
   );
 };
 

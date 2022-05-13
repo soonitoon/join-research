@@ -1,0 +1,17 @@
+.contaienr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    border: none;
+    font-size: 25px;
+
+    &:focus {
+      outline: black solid 1.5px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "/src/styles/variables";
+
+.button {
+  width: 100%;
+  border: none;
+  height: 50px;
+  background-color: $white;
+  font-size: 30px;
+
+  &:active {
+    background-color: $dark-gray;
+    color: $white;
+  }
+}

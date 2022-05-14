@@ -1,7 +1,7 @@
 import $ from "./style.module.scss";
 
 type Prop = {
-  children: JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 };
 
 const Layout = ({ children }: Prop) => {

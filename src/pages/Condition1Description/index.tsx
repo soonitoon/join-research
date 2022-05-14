@@ -2,17 +2,16 @@ import { useNavigate } from "react-router-dom";
 import { Description, Layout, NextButton } from "../../components";
 import { descriptions } from "../../contents";
 
-const Main = () => {
+const Condition1Description = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => navigate("test");
-
+  const handleClick = () => navigate("task");
   return (
     <Layout>
-      <Description description={descriptions.start} />
+      <Description description={descriptions.condition1} />
       <NextButton onClick={handleClick} />
     </Layout>
   );
 };
 
-export default Main;
+export default Condition1Description;

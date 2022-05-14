@@ -1,9 +1,20 @@
+import $ from "./style.module.scss";
+
 type Prop = {
-  description: string;
+  description: string[];
+  isError?: boolean;
 };
 
-const Description = ({ description }: Prop) => {
-  return <p>{description}</p>;
+const Description = ({ description, isError }: Prop) => {
+  return (
+    <div className={isError ? $.error : ""}>
+      {description.map((text) => (
+        <p key={text} className={$.prase}>
+          {text}
+        </p>
+      ))}
+    </div>
+  );
 };
 
 export default Description;

@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Main, Test } from "../pages";
+import Condition1Router from "./Condition1Router";
 
 const ROUTES_DATA = [
   {
@@ -9,6 +10,10 @@ const ROUTES_DATA = [
   {
     path: "/test",
     element: <Test />,
+  },
+  {
+    path: "/condition1/*",
+    element: <Condition1Router />,
   },
 ];
 

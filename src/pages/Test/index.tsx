@@ -1,4 +1,5 @@
 import { ChangeEventHandler, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Description,
   NextButton,
@@ -13,6 +14,8 @@ const Test = () => {
   const [start, setStart] = useState(0);
   const [isDone, setIsDone] = useState(false);
 
+  const navigate = useNavigate();
+
   const calculateTime = () => {
     const end = new Date().getTime();
     const elapsed = end - start;
@@ -22,6 +25,8 @@ const Test = () => {
   const handleChange: ChangeEventHandler<HTMLInputElement> = ({
     target: { value },
   }) => {
+    if (isDone) return;
+
     setTextValue(value);
 
     if (!isStarted) {
@@ -36,7 +41,11 @@ const Test = () => {
   };
 
   const handleClick = () => {
-    if (!isDone) alert(alerts.incomplete);
+    if (!isDone) {
+      alert(alerts.incomplete);
+      return;
+    }
+    navigate("/condition1");
   };
 
   return (

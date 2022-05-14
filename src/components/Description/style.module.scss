@@ -1,2 +1,9 @@
-.description {
+@import "/src/styles/variables";
+
+.error {
+  color: $red;
+}
+
+.prase {
+  margin-bottom: 10px;
 }

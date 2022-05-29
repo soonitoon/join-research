@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { Description, InputWithText, Layout } from "../../components";
-import { descriptions } from "../../contents";
-import fetchWords from "../../utils/fetchWords";
-import ErrorPage from "../ErrorPage";
+import { Description, InputWithText, Layout } from "../../../components";
+import { descriptions } from "../../../contents";
+import fetchWords from "../../../utils/fetchWords";
+import ErrorPage from "../../ErrorPage";
 
-const Condition1Task = () => {
+const Task = () => {
   const [words, setWords] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -53,4 +53,4 @@ const Condition1Task = () => {
   );
 };
 
-export default Condition1Task;
+export default Task;

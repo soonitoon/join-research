@@ -1,14 +1,19 @@
-import { Description1, Description2 } from "./Home";
+import {
+  Description1 as HomeDescription1,
+  Description2 as HomeDescription2,
+} from "./Home";
 import Test from "./Test";
-import Condition1Description from "./Condition1Description";
-import Condition1Task from "./Condition1Task";
+import {
+  Description as Condition1Description,
+  Task as Condition1Task,
+} from "./Condition1";
 import ErrorPage from "./ErrorPage";
 
 export {
-  Description1,
-  Description2,
+  HomeDescription1,
+  HomeDescription2,
   Test,
+  ErrorPage,
   Condition1Description,
   Condition1Task,
-  ErrorPage,
 };

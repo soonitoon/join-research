@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { Description1, Description2 } from "../pages";
+import { HomeDescription1, HomeDescription2 } from "../pages";
 
 const HomeRouter = () => {
   return (
     <Routes>
-      <Route index element={<Description1 />} />
-      <Route path="/second" element={<Description2 />} />
+      <Route index element={<HomeDescription1 />} />
+      <Route path="/second" element={<HomeDescription2 />} />
     </Routes>
   );
 };

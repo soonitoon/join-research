@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Description, Layout } from "../../components";
+import { Description, InputWithText, Layout } from "../../components";
 import { descriptions } from "../../contents";
 import fetchWords from "../../utils/fetchWords";
 import ErrorPage from "../ErrorPage";
@@ -12,8 +12,11 @@ const Condition1Task = () => {
   useEffect(() => {
     const initializeWords = async () => {
       try {
-        const options = { number: 5, length: 10 };
-        const response = await fetchWords(options);
+        const response = await fetchWords({
+          number: 5,
+          length: 10,
+          lang: "it",
+        });
 
         if (!response) throw new Error();
 
@@ -35,7 +38,14 @@ const Condition1Task = () => {
   return (
     <Layout>
       {isLoaded ? (
-        <form>실험 로딩 성공!</form>
+        <form>
+          <InputWithText
+            value={""}
+            onChange={() => ""}
+            sample={`${words[0]}@gmail.com`}
+            placeholder="이메일"
+          />
+        </form>
       ) : (
         <Description description={descriptions.loading} />
       )}

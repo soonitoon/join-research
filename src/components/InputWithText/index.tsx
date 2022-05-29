@@ -5,19 +5,21 @@ import $ from "./style.module.scss";
 type Props = {
   value: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
+  placeholder: string;
+  sample: string;
 };
 
-const InputWithText = ({ value, onChange }: Props) => {
+const InputWithText = ({ value, onChange, placeholder, sample }: Props) => {
   return (
     <div className={$.contaienr}>
       <input
         className={$.input}
         type="text"
         autoComplete="off"
-        placeholder={placeholders.test}
+        placeholder={placeholder}
         {...{ value, onChange }}
       />
-      <span>{sampleTexts.test}</span>
+      <span>{sample}</span>
     </div>
   );
 };

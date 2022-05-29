@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
-import { Main, Test } from "../pages";
+import { Test } from "../pages";
 import Condition1Router from "./Condition1Router";
+import HomeRouter from "./HomeRouter";
 
 const ROUTES_DATA = [
   {
-    path: "/",
-    element: <Main />,
+    path: "/*",
+    element: <HomeRouter />,
   },
   {
     path: "/test",

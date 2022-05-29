@@ -6,7 +6,12 @@ import {
   InputWithText,
   Layout,
 } from "../../components";
-import { descriptions, sampleTexts, alerts } from "../../contents";
+import {
+  descriptions,
+  sampleTexts,
+  alerts,
+  placeholders,
+} from "../../contents";
 
 const Test = () => {
   const [textValue, setTextValue] = useState("");
@@ -51,7 +56,12 @@ const Test = () => {
   return (
     <Layout>
       <Description description={descriptions.typingTest} />
-      <InputWithText value={textValue} onChange={handleChange} />
+      <InputWithText
+        value={textValue}
+        onChange={handleChange}
+        sample={sampleTexts.test}
+        placeholder={placeholders.test}
+      />
       <NextButton onClick={handleClick} />
     </Layout>
   );

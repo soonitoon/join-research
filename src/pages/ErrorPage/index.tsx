@@ -1,7 +1,8 @@
 import { Description, Layout } from "../../components";
+import { Description as DescriptionType } from "../../types";
 
 type Prop = {
-  errorMessage: string[];
+  errorMessage: DescriptionType[];
 };
 
 const ErrorPage = ({ errorMessage }: Prop) => {

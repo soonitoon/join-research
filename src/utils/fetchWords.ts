@@ -1,10 +1,4 @@
-type Options = {
-  length?: number;
-  number?: number;
-  lang?: "it" | "de" | "zh" | "es";
-};
-
-type FetchWords = (options?: Options, timeout?: number) => Promise<string[]>;
+import { FetchWords } from "../types";
 
 const URL = "https://random-word-api.herokuapp.com/word";
 

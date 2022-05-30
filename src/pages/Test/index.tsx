@@ -62,7 +62,7 @@ const Test = () => {
         sample={sampleTexts.test}
         placeholder={placeholders.test}
       />
-      <NextButton onClick={handleClick} />
+      <NextButton onClick={handleClick} type="button" />
     </Layout>
   );
 };

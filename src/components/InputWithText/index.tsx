@@ -1,17 +1,45 @@
+import classnames from "classnames";
 import { ChangeEventHandler } from "react";
-import { sampleTexts, placeholders } from "../../contents";
+import { UseFormRegisterReturn } from "react-hook-form";
 import $ from "./style.module.scss";
 
-type Props = {
-  value: string;
-  onChange: ChangeEventHandler<HTMLInputElement>;
-  placeholder: string;
-  sample: string;
-};
+type Props =
+  | {
+      register: () => UseFormRegisterReturn;
+      placeholder: string;
+      sample: string;
+      className?: string;
+    }
+  | {
+      value: string;
+      onChange: ChangeEventHandler<HTMLInputElement>;
+      placeholder: string;
+      sample: string;
+      className?: string;
+    };
 
-const InputWithText = ({ value, onChange, placeholder, sample }: Props) => {
+const InputWithText = (prop: Props) => {
+  if ("register" in prop) {
+    const { register, placeholder, sample, className } = prop;
+
+    return (
+      <div className={classnames($.contaienr, className)}>
+        <input
+          className={$.input}
+          type="text"
+          autoComplete="off"
+          placeholder={placeholder}
+          {...register()}
+        />
+        <span className={$.sample}>{sample}</span>
+      </div>
+    );
+  }
+
+  const { value, onChange, placeholder, sample, className } = prop;
+
   return (
-    <div className={$.contaienr}>
+    <div className={classnames($.contaienr, className)}>
       <input
         className={$.input}
         type="text"
@@ -19,7 +47,7 @@ const InputWithText = ({ value, onChange, placeholder, sample }: Props) => {
         placeholder={placeholder}
         {...{ value, onChange }}
       />
-      <span>{sample}</span>
+      <span className={$.sample}>{sample}</span>
     </div>
   );
 };

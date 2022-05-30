@@ -1,13 +1,16 @@
 import { MouseEventHandler } from "react";
 import $ from "./style.module.scss";
 
-type Prop = {
-  onClick: MouseEventHandler<HTMLButtonElement>;
-};
+type Prop =
+  | { type: "submit" }
+  | {
+      type: "button";
+      onClick: MouseEventHandler<HTMLButtonElement>;
+    };
 
-const NextButton = ({ onClick }: Prop) => {
+const NextButton = (prop: Prop) => {
   return (
-    <button className={$.button} onClick={onClick}>
+    <button className={$.button} {...prop}>
       다음
     </button>
   );

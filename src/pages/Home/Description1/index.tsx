@@ -10,7 +10,7 @@ const Description1 = () => {
   return (
     <Layout>
       <Description description={descriptions.start.first} />
-      <NextButton onClick={handleClick} />
+      <NextButton onClick={handleClick} type="button" />
     </Layout>
   );
 };

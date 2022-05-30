@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Description, InputWithText, Layout } from "../../../components";
+import { Description, Layout, Task1Form } from "../../../components";
 import { descriptions } from "../../../contents";
 import fetchWords from "../../../utils/fetchWords";
 import ErrorPage from "../../ErrorPage";
@@ -13,8 +13,8 @@ const Task = () => {
     const initializeWords = async () => {
       try {
         const response = await fetchWords({
-          number: 5,
-          length: 10,
+          number: 6,
+          length: 6,
           lang: "it",
         });
 
@@ -38,14 +38,7 @@ const Task = () => {
   return (
     <Layout>
       {isLoaded ? (
-        <form>
-          <InputWithText
-            value={""}
-            onChange={() => ""}
-            sample={`${words[0]}@gmail.com`}
-            placeholder="이메일"
-          />
-        </form>
+        <Task1Form {...{ words }} />
       ) : (
         <Description description={descriptions.loading} />
       )}

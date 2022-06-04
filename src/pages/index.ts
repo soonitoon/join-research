@@ -7,13 +7,19 @@ import {
   Description as Condition1Description,
   Task as Condition1Task,
 } from "./Condition1";
-import ErrorPage from "./ErrorPage";
+import OnlyTextPage from "./OnlyTextPage";
+import {
+  Description as Condition2Description,
+  Task as Condition2Task,
+} from "./Condition2";
 
 export {
   HomeDescription1,
   HomeDescription2,
   Test,
-  ErrorPage,
+  OnlyTextPage,
   Condition1Description,
   Condition1Task,
+  Condition2Description,
+  Condition2Task,
 };

@@ -48,7 +48,7 @@ const descriptions = {
     },
   ],
   condition1: [
-    { text: "이제 가상의 회원가입이 두 번 진행될 것입니다.", isStrong: false },
+    { text: "이제 가상의 회원가입이 진행됩니다.", isStrong: false },
     {
       text: "실제 개인정보가 아닌 입력칸 바로 밑에 제시되는 정보를 그대로 입력해주세요.",
       isStrong: true,

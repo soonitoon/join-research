@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Test } from "../pages";
 import Condition1Router from "./Condition1Router";
+import Condition2Router from "./Condition2Router";
 import HomeRouter from "./HomeRouter";
 
 const ROUTES_DATA = [
@@ -16,13 +17,17 @@ const ROUTES_DATA = [
     path: "/condition1/*",
     element: <Condition1Router />,
   },
+  {
+    path: "/condition2/*",
+    element: <Condition2Router />,
+  },
 ];
 
 const Router = () => {
   return (
     <Routes>
-      {ROUTES_DATA.map(({ path, element }) => (
-        <Route key={path} {...{ path, element }} />
+      {ROUTES_DATA.map((route) => (
+        <Route key={route.path} {...route} />
       ))}
     </Routes>
   );

@@ -1,16 +1,18 @@
+import classNames from "classnames";
 import { MouseEventHandler } from "react";
 import $ from "./style.module.scss";
 
 type Prop =
-  | { type: "submit" }
+  | { type: "submit"; className?: string }
   | {
       type: "button";
       onClick: MouseEventHandler<HTMLButtonElement>;
+      className?: string;
     };
 
-const NextButton = (prop: Prop) => {
+const NextButton = ({ className, ...prop }: Prop) => {
   return (
-    <button className={$.button} {...prop}>
+    <button className={classNames($.button, className)} {...prop}>
       다음
     </button>
   );

@@ -25,3 +25,12 @@ export type Task1Inputs = {
   petName: string;
   location: string;
 };
+
+export enum Condition2TextIndex {
+  email = 0,
+  password = 1,
+  name = 2,
+  school = 3,
+  petName = 4,
+  location = 5,
+}

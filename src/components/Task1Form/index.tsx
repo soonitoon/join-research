@@ -1,23 +1,21 @@
 import InputWithText from "../InputWithText";
-import emailList from "../../constants/emailList";
 import { placeholders } from "../../contents";
 import getRandomInt from "../../utils/getRandomInt";
 import NextButton from "../NextButton";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Task1Inputs } from "../../types";
-import React, { MouseEventHandler, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Description from "../Description";
 import $ from "./style.module.scss";
+import useStore from "../../hooks/useStore";
+import getRandomEmailAddress from "../../utils/getRandomEmailAddress";
 
-type Prop = {
-  words: string[];
-};
-
-const Task1Form = ({ words }: Prop) => {
-  const [email, setEmail] = useState("");
+const Task1Form = () => {
+  const [emailAddress, setEmailAddress] = useState("");
   const [age, setAge] = useState("");
   const [startTime, setStartTime] = useState(0);
   const [clickCount, setClickCount] = useState(0);
+  const randomWords = useStore((state) => state.randomWords);
   const {
     register,
     handleSubmit,
@@ -25,26 +23,25 @@ const Task1Form = ({ words }: Prop) => {
   } = useForm<Task1Inputs>();
 
   useEffect(() => {
-    const randomIndex = getRandomInt(0, emailList.length - 1);
     setAge(getRandomInt(20, 60).toString());
-    setEmail(emailList[randomIndex]);
+    setEmailAddress(getRandomEmailAddress());
     setStartTime(new Date().getTime());
   }, []);
 
   const INPUT_DATA = [
     {
       registerName: "email" as const,
-      sample: `${words[0]}@${email}`,
+      sample: `${randomWords[0]}@${emailAddress}`,
       placeholder: placeholders.task1.email,
     },
     {
       registerName: "password" as const,
-      sample: words[1],
+      sample: randomWords[1],
       placeholder: placeholders.task1.password,
     },
     {
       registerName: "name" as const,
-      sample: words[2],
+      sample: randomWords[2],
       placeholder: placeholders.task1.name,
     },
     {
@@ -54,17 +51,17 @@ const Task1Form = ({ words }: Prop) => {
     },
     {
       registerName: "school" as const,
-      sample: `${words[3]} school`,
+      sample: `${randomWords[3]} school`,
       placeholder: placeholders.task1.school,
     },
     {
       registerName: "petName" as const,
-      sample: words[4],
+      sample: randomWords[4],
       placeholder: placeholders.task1.petName,
     },
     {
       registerName: "location" as const,
-      sample: words[5],
+      sample: randomWords[5],
       placeholder: placeholders.task1.location,
     },
   ];

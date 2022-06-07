@@ -1,42 +1,39 @@
 import classnames from "classnames";
-import { ChangeEventHandler } from "react";
+import { ChangeEventHandler, RefObject } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 import $ from "./style.module.scss";
 
-type Props =
-  | {
-      register: () => UseFormRegisterReturn;
-      placeholder: string;
-      sample: string;
-      className?: string;
-    }
-  | {
-      value: string;
-      onChange: ChangeEventHandler<HTMLInputElement>;
-      placeholder: string;
-      sample: string;
-      className?: string;
-    };
+type BasicProps = {
+  placeholder: string;
+  sample: string;
+  className?: string;
+  refObject?: RefObject<HTMLInputElement>;
+};
 
-const InputWithText = (prop: Props) => {
-  if ("register" in prop) {
-    const { register, placeholder, sample, className } = prop;
+type RegisterProps = {
+  register: () => UseFormRegisterReturn;
+} & BasicProps;
 
-    return (
-      <div className={classnames($.contaienr, className)}>
-        <input
-          className={$.input}
-          type="text"
-          autoComplete="off"
-          placeholder={placeholder}
-          {...register()}
-        />
-        <span className={$.sample}>{sample}</span>
-      </div>
-    );
-  }
+type OnChangeProps = {
+  value: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+} & BasicProps;
 
-  const { value, onChange, placeholder, sample, className } = prop;
+type Props = RegisterProps | OnChangeProps;
+
+const InputWithText = (props: Props) => {
+  let inputController;
+  const {
+    className,
+    placeholder,
+    sample,
+    refObject,
+    ...conditionalAttributes
+  } = props;
+
+  if ("register" in conditionalAttributes)
+    inputController = conditionalAttributes.register();
+  else inputController = conditionalAttributes;
 
   return (
     <div className={classnames($.contaienr, className)}>
@@ -45,7 +42,8 @@ const InputWithText = (prop: Props) => {
         type="text"
         autoComplete="off"
         placeholder={placeholder}
-        {...{ value, onChange }}
+        ref={refObject}
+        {...inputController}
       />
       <span className={$.sample}>{sample}</span>
     </div>

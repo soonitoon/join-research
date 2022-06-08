@@ -1,5 +1,5 @@
 const sampleTexts = {
-  test: "흰 토끼를 쫒는 검은 사슴",
+  test: "qualsiasi giorno per me va bene",
 };
 
 export default sampleTexts;

@@ -1,28 +1,8 @@
 import create from "zustand";
-
-type TaskData = {
-  elapsedTimeMs: number;
-  errorCount: number;
-  touchCount: number;
-};
-
-type GlobalState = {
-  personalInformation: string;
-  screenSize: [number, number];
-  typingSpeedMs: number;
-  randomWords: string[];
-  condition1Data: TaskData;
-  condition2Data: TaskData;
-
-  setPersonalInformation: (info: string) => void;
-  setScreenSize: (size: [number, number]) => void;
-  setTypingSpeedMs: (speed: number) => void;
-  setRandomWords: (words: string[]) => void;
-  setCondition1Data: (data: Partial<TaskData>) => void;
-  setCondition2Data: (data: Partial<TaskData>) => void;
-};
+import { GlobalState } from "../types";
 
 const useStore = create<GlobalState>((set, get) => ({
+  firtsTask: "condition1",
   personalInformation: "",
   screenSize: [0, 0],
   typingSpeedMs: 0,
@@ -30,6 +10,7 @@ const useStore = create<GlobalState>((set, get) => ({
   condition1Data: { elapsedTimeMs: 0, errorCount: 0, touchCount: 0 },
   condition2Data: { elapsedTimeMs: 0, errorCount: 0, touchCount: 0 },
 
+  setFirstTask: (order) => set({ firtsTask: order }),
   setPersonalInformation: (info) => set({ personalInformation: info }),
   setScreenSize: (size) => set({ screenSize: size }),
   setTypingSpeedMs: (speed) => set({ typingSpeedMs: speed }),

@@ -5,6 +5,7 @@ import useStore from "./hooks/useStore";
 import { OnlyTextPage } from "./pages";
 import Router from "./routes/Router";
 import fetchWords from "./utils/fetchWords";
+import getRandomInt from "./utils/getRandomInt";
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -13,12 +14,13 @@ const App = () => {
   const [width, height] = useStore((state) => state.screenSize);
   const setScreenSize = useStore((state) => state.setScreenSize);
   const setRandomWords = useStore((state) => state.setRandomWords);
+  const setFirstTask = useStore((state) => state.setFirstTask);
 
   useEffect(() => {
     const initializeWords = async () => {
       try {
         const response = await fetchWords({
-          number: 6,
+          number: 12,
           length: 6,
           lang: "it",
         });
@@ -35,6 +37,7 @@ const App = () => {
     };
 
     setScreenSize([window.screen.width, window.screen.height]);
+    setFirstTask(Math.random() > 0.5 ? "condition1" : "condition2");
     initializeWords();
   }, []);
 

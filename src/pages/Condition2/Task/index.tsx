@@ -31,6 +31,7 @@ const Task = () => {
   const navigate = useNavigate();
   const words = useStore((state) => state.randomWords);
   const setCondition2Data = useStore((state) => state.setCondition2Data);
+  const firstTask = useStore((state) => state.firtsTask);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -93,7 +94,7 @@ const Task = () => {
         const elapsedTimeMs = endTime.getTime() - startTime!.getTime();
         setCondition2Data({ elapsedTimeMs });
 
-        navigate("/end");
+        navigate(firstTask === "condition2" ? "/condition1" : "/end");
         return;
       }
       setFormDataIndex((pre) => ++pre);

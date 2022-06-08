@@ -26,7 +26,7 @@ const Personal = () => {
     const time = new Date();
     const personalCode = `${time}${birth}${phone}`;
     setPersonalInformation(personalCode);
-    navigate("/condition1");
+    navigate("/test");
   };
 
   return (

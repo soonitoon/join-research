@@ -12,19 +12,22 @@ import {
   alerts,
   placeholders,
 } from "../../contents";
+import useStore from "../../hooks/useStore";
 
 const Test = () => {
   const [textValue, setTextValue] = useState("");
   const [isStarted, setIsStarted] = useState(false);
   const [start, setStart] = useState(0);
   const [isDone, setIsDone] = useState(false);
+  const setTypingSpeedMs = useStore((state) => state.setTypingSpeedMs);
+  const firstTask = useStore((state) => state.firtsTask);
 
   const navigate = useNavigate();
 
   const calculateTime = () => {
     const end = new Date().getTime();
     const elapsed = end - start;
-    console.log(elapsed);
+    return elapsed;
   };
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = ({
@@ -40,7 +43,8 @@ const Test = () => {
     }
 
     if (value === sampleTexts.test) {
-      calculateTime();
+      const elapsed = calculateTime();
+      setTypingSpeedMs(elapsed);
       setIsDone(true);
     }
   };
@@ -50,7 +54,7 @@ const Test = () => {
       alert(alerts.incomplete);
       return;
     }
-    navigate("/condition1");
+    navigate(`/${firstTask}`);
   };
 
   return (

@@ -30,9 +30,12 @@ const Task = () => {
 
   const navigate = useNavigate();
   const words = useStore((state) => state.randomWords);
+  const setCondition2Data = useStore((state) => state.setCondition2Data);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    inputRef.current?.focus();
+
     const randomWord = words[Condition2TextIndex.email];
     const randomEmailAddress = getRandomEmailAddress();
 
@@ -87,8 +90,8 @@ const Task = () => {
 
       if (isLastIndex) {
         const endTime = new Date();
-        const elapsed = endTime.getTime() - startTime!.getTime();
-        console.log(elapsed);
+        const elapsedTimeMs = endTime.getTime() - startTime!.getTime();
+        setCondition2Data({ elapsedTimeMs });
 
         navigate("/end");
         return;

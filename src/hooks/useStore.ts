@@ -18,11 +18,11 @@ type GlobalState = {
   setScreenSize: (size: [number, number]) => void;
   setTypingSpeedMs: (speed: number) => void;
   setRandomWords: (words: string[]) => void;
-  setCondition1Data: (data: TaskData) => void;
-  setCondition2Data: (data: TaskData) => void;
+  setCondition1Data: (data: Partial<TaskData>) => void;
+  setCondition2Data: (data: Partial<TaskData>) => void;
 };
 
-const useStore = create<GlobalState>((set) => ({
+const useStore = create<GlobalState>((set, get) => ({
   personalInformation: "",
   screenSize: [0, 0],
   typingSpeedMs: 0,
@@ -34,8 +34,10 @@ const useStore = create<GlobalState>((set) => ({
   setScreenSize: (size) => set({ screenSize: size }),
   setTypingSpeedMs: (speed) => set({ typingSpeedMs: speed }),
   setRandomWords: (words) => set({ randomWords: words }),
-  setCondition1Data: (data) => set({ condition1Data: data }),
-  setCondition2Data: (data) => set({ condition2Data: data }),
+  setCondition1Data: (data) =>
+    set({ condition1Data: { ...get().condition1Data, ...data } }),
+  setCondition2Data: (data) =>
+    set({ condition2Data: { ...get().condition2Data, ...data } }),
 }));
 
 export default useStore;

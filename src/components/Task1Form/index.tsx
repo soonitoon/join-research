@@ -14,8 +14,9 @@ const Task1Form = () => {
   const [emailAddress, setEmailAddress] = useState("");
   const [age, setAge] = useState("");
   const [startTime, setStartTime] = useState(0);
-  const [clickCount, setClickCount] = useState(0);
+  const [touchCount, setTouchCount] = useState(0);
   const randomWords = useStore((state) => state.randomWords);
+  const setCondition1Data = useStore((state) => state.setCondition1Data);
   const {
     register,
     handleSubmit,
@@ -68,13 +69,11 @@ const Task1Form = () => {
 
   const onSubmit: SubmitHandler<Task1Inputs> = () => {
     const endTime = new Date().getTime();
-    const elapsed = endTime - startTime;
-
-    console.log(elapsed);
-    console.log(clickCount);
+    const elapsedTimeMs = endTime - startTime;
+    setCondition1Data({ elapsedTimeMs, touchCount });
   };
 
-  const handleFormClick = () => setClickCount((pre) => pre + 1);
+  const handleFormClick = () => setTouchCount((pre) => pre + 1);
 
   return (
     <form

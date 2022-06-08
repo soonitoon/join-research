@@ -33,6 +33,16 @@ const descriptions = {
       },
     ],
   },
+  personal: [
+    {
+      text: "실험 데이터 구분을 위해 개인정보를 수집합니다. 입력하신 개인정보는 연구 종료와 함께 폐기됩니다.",
+      isStrong: false,
+    },
+    {
+      text: "생년 정보와 전화번호 뒷자리를 입력해주세요.",
+      isStrong: false,
+    },
+  ],
   typingTest: [
     {
       text: "회원가입 과정에서 아래와 같은 입력칸과 글자가 나타날 것입니다.",
@@ -56,6 +66,16 @@ const descriptions = {
     { text: "준비가 되면 '다음' 버튼을 눌러주세요.", isStrong: false },
   ],
   error: {
+    personalInputError: {
+      birth: {
+        text: "생년 정보를 다시 확인해주세요.",
+        isStrong: true,
+      },
+      phone: {
+        text: "번호를 다시 확인해주세요.",
+        isStrong: true,
+      },
+    },
     dataLoadingError: [
       { text: "데이터 로딩에 실패하였습니다.", isStrong: false },
       {

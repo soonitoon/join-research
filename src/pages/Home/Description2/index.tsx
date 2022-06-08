@@ -5,7 +5,7 @@ import { descriptions } from "../../../contents";
 const Description2 = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => navigate("/test");
+  const handleClick = () => navigate("/personal");
 
   return (
     <Layout>

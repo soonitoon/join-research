@@ -12,10 +12,12 @@ import {
   Description as Condition2Description,
   Task as Condition2Task,
 } from "./Condition2";
+import Personal from "./Personal";
 
 export {
   HomeDescription1,
   HomeDescription2,
+  Personal,
   Test,
   OnlyTextPage,
   Condition1Description,

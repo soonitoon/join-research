@@ -26,6 +26,8 @@ export type Task1Inputs = {
   location: string;
 };
 
+export type PersonalInformationInputs = { birth: string; phone: string };
+
 export enum Condition2TextIndex {
   email = 0,
   password = 1,

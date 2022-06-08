@@ -1,4 +1,8 @@
 const placeholders = {
+  personal: {
+    birth: "생년원일 뒷 2자리",
+    phone: "전화번호 뒷자리",
+  },
   test: "여기에 입력해주세요",
   task1: {
     email: "이메일",

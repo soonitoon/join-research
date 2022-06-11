@@ -13,6 +13,7 @@ import {
   Task as Condition2Task,
 } from "./Condition2";
 import Personal from "./Personal";
+import End from "./End";
 
 export {
   HomeDescription1,
@@ -24,4 +25,5 @@ export {
   Condition1Task,
   Condition2Description,
   Condition2Task,
+  End,
 };

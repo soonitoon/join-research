@@ -7,9 +7,16 @@
   border-radius: 25px;
   background-color: $white;
   font-size: 30px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 50px;
 
   &:active {
     background-color: $dark-gray;
     color: $white;
+  }
+
+  &:visited {
+    color: $black;
   }
 }

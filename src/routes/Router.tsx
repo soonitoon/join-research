@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Personal, Test } from "../pages";
+import { Personal, Test, End } from "../pages";
 import Condition1Router from "./Condition1Router";
 import Condition2Router from "./Condition2Router";
 import HomeRouter from "./HomeRouter";
@@ -24,6 +24,10 @@ const ROUTES_DATA = [
   {
     path: "/condition2/*",
     element: <Condition2Router />,
+  },
+  {
+    path: "/end",
+    element: <End />,
   },
 ];
 

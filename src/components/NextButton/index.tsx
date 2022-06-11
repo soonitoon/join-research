@@ -8,9 +8,20 @@ type Prop =
       type: "button";
       onClick: MouseEventHandler<HTMLButtonElement>;
       className?: string;
+    }
+  | {
+      type: "link";
+      url: string;
+      className?: string;
     };
 
 const NextButton = ({ className, ...prop }: Prop) => {
+  if (prop.type === "link")
+    return (
+      <a className={$.button} href={prop.url}>
+        다음
+      </a>
+    );
   return (
     <button className={classNames($.button, className)} {...prop}>
       다음

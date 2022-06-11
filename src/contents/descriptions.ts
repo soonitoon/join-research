@@ -2,7 +2,7 @@ const descriptions = {
   start: {
     first: [
       {
-        text: "이 실험은 회원가입 UI에 따른 회원가입 과정의 사용성을 측정하는 실험입니다.",
+        text: "이 실험은 모바일 환경에서 회원가입 방식에 따른 사용성을 측정하는 실험입니다.",
         isStrong: false,
       },
       {
@@ -111,6 +111,20 @@ const descriptions = {
     ],
   },
   loading: [{ text: "데이터 받아오는 중...", isStrong: false }],
+  end: [
+    {
+      text: "이 페이지에서 수행하는 실험이 모두 종료되었습니다.",
+      isStrong: false,
+    },
+    {
+      text: "밑의 '다음' 버튼을 눌러 구글폼 페이지로 이동해주시기 바랍니다.",
+      isStrong: false,
+    },
+    {
+      text: "구글폼 작성까지 완료해주셔야 실험이 정상적으로 완료됩니다.",
+      isStrong: true,
+    },
+  ],
 };
 
 export default descriptions;

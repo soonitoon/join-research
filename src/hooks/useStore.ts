@@ -7,8 +7,8 @@ const useStore = create<GlobalState>((set, get) => ({
   screenSize: [0, 0],
   typingSpeedMs: 0,
   randomWords: [],
-  condition1Data: { elapsedTimeMs: 0, errorCount: 0, touchCount: 0 },
-  condition2Data: { elapsedTimeMs: 0, errorCount: 0, touchCount: 0 },
+  condition1Data: { elapsedTimeMs: 0, touchCount: 0 },
+  condition2Data: { elapsedTimeMs: 0, touchCount: 0 },
 
   setFirstTask: (order) => set({ firtsTask: order }),
   setPersonalInformation: (info) => set({ personalInformation: info }),

@@ -48,7 +48,6 @@ export enum Condition2TextIndex {
 
 export type TaskData = {
   elapsedTimeMs: number;
-  errorCount: number;
   touchCount: number;
 };
 

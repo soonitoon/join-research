@@ -23,6 +23,7 @@ const Task = () => {
   const [formDataIndex, setFormDataIndex] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [isError, setIsError] = useState(false);
+  const [touchCount, setTouchCount] = useState(0);
   const [startTime, setStartTime] = useState<Date>();
 
   const [email, setEmail] = useState("");
@@ -64,7 +65,7 @@ const Task = () => {
     },
     {
       placeholder: placeholders.task1.school,
-      sample: words[Condition2TextIndex.school],
+      sample: `${words[Condition2TextIndex.school]} school`,
     },
     {
       placeholder: placeholders.task1.petName,
@@ -83,8 +84,7 @@ const Task = () => {
   const handleSubmit: FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
     const isCorrect = inputValue === FORM_DATA[formDataIndex].sample;
-    const lastIndex = Condition2TextIndex.location;
-    const isLastIndex = formDataIndex === lastIndex;
+    const isLastIndex = formDataIndex === 6;
 
     if (isCorrect) {
       setIsError(false);
@@ -92,7 +92,7 @@ const Task = () => {
       if (isLastIndex) {
         const endTime = new Date();
         const elapsedTimeMs = endTime.getTime() - startTime!.getTime();
-        setCondition2Data({ elapsedTimeMs });
+        setCondition2Data({ elapsedTimeMs, touchCount });
 
         navigate(firstTask === "condition2" ? "/condition1" : "/end");
         return;
@@ -106,9 +106,11 @@ const Task = () => {
     inputRef.current?.focus();
   };
 
+  const handleClick = () => setTouchCount((pre) => ++pre);
+
   return (
     <Layout>
-      <form className={$.form} onSubmit={handleSubmit}>
+      <form className={$.form} onSubmit={handleSubmit} onClick={handleClick}>
         <div className={$["input-box"]}>
           <Description
             description={{

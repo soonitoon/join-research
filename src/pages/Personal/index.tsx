@@ -23,7 +23,7 @@ const Personal = () => {
   } = useForm<PersonalInformationInputs>();
 
   const onSubmit = ({ birth, phone }: PersonalInformationInputs) => {
-    const time = new Date();
+    const time = new Date().getTime();
     const personalCode = `${time}${birth}${phone}`;
     setPersonalInformation(personalCode);
     navigate("/test");

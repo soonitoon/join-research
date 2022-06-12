@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Description, Layout, NextButton } from "../../components";
 import { descriptions } from "../../contents";
 

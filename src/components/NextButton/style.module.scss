@@ -7,9 +7,11 @@
   border-radius: 25px;
   background-color: $white;
   font-size: 30px;
+  font-weight: normal;
   text-align: center;
   text-decoration: none;
   line-height: 50px;
+  color: $black;
 
   &:active {
     background-color: $dark-gray;

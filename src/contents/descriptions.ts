@@ -109,6 +109,13 @@ const descriptions = {
         isStrong: false,
       },
     ],
+    dataPushError: [
+      {
+        text: "데이터 전송 에러",
+        isStrong: false,
+      },
+      { text: "실험자에게 에러 발생 사실을 알려주십시오.", isStrong: false },
+    ],
   },
   loading: [{ text: "데이터 받아오는 중...", isStrong: false }],
   end: [
@@ -123,6 +130,12 @@ const descriptions = {
     {
       text: "구글폼 작성까지 완료해주셔야 실험이 정상적으로 완료됩니다.",
       isStrong: true,
+    },
+  ],
+  dataPush: [
+    {
+      text: "데이터 전송중...",
+      isStrong: false,
     },
   ],
 };

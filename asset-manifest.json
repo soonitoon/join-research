@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/join-research/static/css/main.9a8ed177.css",
+    "main.js": "/join-research/static/js/main.c4e365ca.js",
+    "index.html": "/join-research/index.html",
+    "main.9a8ed177.css.map": "/join-research/static/css/main.9a8ed177.css.map",
+    "main.c4e365ca.js.map": "/join-research/static/js/main.c4e365ca.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a8ed177.css",
+    "static/js/main.c4e365ca.js"
+  ]
+}

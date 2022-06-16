@@ -5,7 +5,6 @@ import useStore from "./hooks/useStore";
 import { OnlyTextPage } from "./pages";
 import Router from "./routes/Router";
 import fetchWords from "./utils/fetchWords";
-import getRandomInt from "./utils/getRandomInt";
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
